@@ -1,0 +1,7 @@
+CreateOrderTests.class
+ChangeUserDataWithAuthorizationTests.class
+CreateUserParamTests.class
+CreateUserTests.class
+ChangeUserDataWithoutAuthorizationTests.class
+UserLoginTests.class
+GetOrdersTests.class
