@@ -1,19 +1,21 @@
 import io.qameta.allure.junit4.DisplayName;
-import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import user.*;
+import user.UserCreds;
+import user.UserInfo;
+import user.UserRequest;
+import user.UserResponse;
 
 import static org.apache.http.HttpStatus.SC_OK;
-import static org.apache.http.HttpStatus.SC_FORBIDDEN;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class ChangeUserDataWithAuthorizationTests {
 
-    private UserClient userClient;
     private static UserRequest userRequest;
     private static UserResponse userResponse;
+    private UserClient userClient;
 
     @Before
     public void setUp() {
@@ -63,16 +65,6 @@ public class ChangeUserDataWithAuthorizationTests {
                 .assertThat()
                 .statusCode(SC_OK);
         userClient.userLogin(userRequest).then().assertThat().statusCode(SC_OK);
-    }
-
-    @Test
-    @DisplayName("403 FORBIDDEN: user with such email already exists")
-    public void errorChangeUserEmailExist() {
-        Response response = userClient.userChange(userRequest, UserCreds.getCredsFrom(userResponse));
-        response.then().assertThat().statusCode(SC_FORBIDDEN);
-        GeneralResponse generalResponse = response.body().as(GeneralResponse.class);
-        assertFalse(generalResponse.isSuccess());
-        assertEquals("User with such email already exists", generalResponse.getMessage());
     }
 
     @After

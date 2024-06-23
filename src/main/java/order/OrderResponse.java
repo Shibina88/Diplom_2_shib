@@ -13,20 +13,20 @@ public class OrderResponse {
         return name;
     }
 
-    public OrderNumber getOrder() {
-        return order;
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
+    public OrderNumber getOrder() {
+        return order;
+    }
+
     public void setOrder(OrderNumber order) {
         this.order = order;
+    }
+
+    public boolean isSuccess() {
+        return success;
     }
 
     public void setSuccess(boolean success) {

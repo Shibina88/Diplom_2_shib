@@ -14,12 +14,12 @@ public class IngredientList {
         return success;
     }
 
-    public List<Ingredient> getData() {
-        return data;
-    }
-
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public List<Ingredient> getData() {
+        return data;
     }
 
     public void setData(List<Ingredient> data) {

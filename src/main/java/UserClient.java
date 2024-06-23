@@ -4,8 +4,6 @@ import io.restassured.response.Response;
 import user.UserCreds;
 import user.UserRequest;
 
-import java.util.HashMap;
-
 import static io.restassured.RestAssured.given;
 
 public class UserClient {
@@ -14,7 +12,7 @@ public class UserClient {
     private static final String USER_PATH = "api/auth/user";
 
     public UserClient() {
-        RestAssured.baseURI = Constants.BASE_URI;;
+        RestAssured.baseURI = Constants.BASE_URI;
     }
 
     @Step("Create user")

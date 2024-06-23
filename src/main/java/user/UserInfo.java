@@ -11,12 +11,12 @@ public class UserInfo {
         return success;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public void setUser(User user) {

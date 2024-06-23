@@ -10,12 +10,12 @@ public class GeneralResponse {
         return success;
     }
 
-    public String getMessage() {
-        return message;
-    }
-
     public void setSuccess(boolean success) {
         this.success = success;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public void setMessage(String message) {

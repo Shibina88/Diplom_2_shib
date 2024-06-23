@@ -1,7 +1,7 @@
+import ingredient.IngredientList;
 import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
-import ingredient.IngredientList;
 import order.OrderRequest;
 import order.OrderResponse;
 import org.junit.After;
@@ -11,7 +11,10 @@ import user.UserCreds;
 import user.UserRequest;
 import user.UserResponse;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 import static org.apache.http.HttpStatus.*;
 import static org.junit.Assert.*;

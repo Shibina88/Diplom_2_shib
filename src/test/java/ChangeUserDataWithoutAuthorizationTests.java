@@ -15,26 +15,17 @@ import static org.junit.Assert.assertFalse;
 
 @RunWith(Parameterized.class)
 public class ChangeUserDataWithoutAuthorizationTests {
-    private UserClient userClient;
     private static UserRequest userRequest;
     private static UserResponse userResponse;
     private final String email;
     private final String password;
     private final String name;
+    private UserClient userClient;
 
     public ChangeUserDataWithoutAuthorizationTests(String email, String password, String name) {
         this.email = email;
         this.password = password;
         this.name = name;
-    }
-
-    @Before
-    public void setUp() {
-        userRequest = UserRequest.userGenerator();
-        userClient = new UserClient();
-        userClient.userCreate(userRequest);
-        userResponse = userClient.userLogin(userRequest).body()
-                .as(UserResponse.class);
     }
 
     @Parameterized.Parameters()
@@ -44,6 +35,15 @@ public class ChangeUserDataWithoutAuthorizationTests {
                 {null, UserRequest.userGenerator().getPassword(), null},
                 {null, null, UserRequest.userGenerator().getName()}
         };
+    }
+
+    @Before
+    public void setUp() {
+        userRequest = UserRequest.userGenerator();
+        userClient = new UserClient();
+        userClient.userCreate(userRequest);
+        userResponse = userClient.userLogin(userRequest).body()
+                .as(UserResponse.class);
     }
 
     @Test
